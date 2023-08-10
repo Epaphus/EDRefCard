@@ -13,6 +13,8 @@ supportedDevices = OrderedDict([
     ('LogitechG940', {'Template': 'g940', 'HandledDevices': ['LogitechG940Joystick', 'LogitechG940Throttle']}),
     ('T16000M', {'Template': 't16000m', 'HandledDevices': ['T16000M']}),
     ('T16000MFCS', {'Template': 't16000mfcs', 'HandledDevices': ['T16000MFCS', 'T16000MTHROTTLE']}),
+    ('TCASidestickLeft', {'Template': 'tca-left', 'HandledDevices': ['044F0405']}),
+    ('TCASidestickRight', {'Template': 'tca-right', 'HandledDevices': ['044F0406']}),
     ('TFlightHOTASX', {'Template': 'hotasx', 'HandledDevices': ['ThrustMasterTFlightHOTASX']}),
     ('ThrustMasterHOTAS4', {'Template': 'hotas4', 'HandledDevices': ['ThrustMasterHOTAS4']}),
     ('T-Rudder', {'Template': 'tfrp', 'HandledDevices': ['T-Rudder']}),
@@ -50,12 +52,15 @@ supportedDevices = OrderedDict([
     ('VPC-ALPHA-Right', {'Template': 'vpc-alpha-right', 'HandledDevices': ['03EB2048']}),
     ('VPC-ALPHA-Left-Custom', {'Template': 'vpc-alpha-left', 'HandledDevices': ['03EB9901']}),
     ('VPC-ALPHA-Right-Custom', {'Template': 'vpc-alpha-right', 'HandledDevices': ['03EB9902']}),
+    ('VPC-ALPHA-Prime-Right', {'Template': 'vpc-alpha-prime-right', 'HandledDevices': ['334443F4']}),
     ('VPC-MongoosT-50CM3-Throttle', {'Template': 'vpc-mongoost-50cm3-throttle', 'HandledDevices': ['33448197']}),
     ('VPC-MongoosT-50CM3-Throttle-32B', {'Template': 'vpc-mongoost-50cm3-throttle-32b', 'KeyDevices': ['VPC-MongoosT-50CM3-Throttle-32B0', 'VPC-MongoosT-50CM3-Throttle-32B1', 'VPC-MongoosT-50CM3-Throttle-32B2'], 'HandledDevices': ['VPC-MongoosT-50CM3-Throttle-32B0', 'VPC-MongoosT-50CM3-Throttle-32B1', 'VPC-MongoosT-50CM3-Throttle-32B2']}),
     ('VKB-Kosmosima-SCG-Left', {'Template': 'vkb-kosmosima-scg-left', 'HandledDevices': ['231D0127']}),
     ('VKB-Kosmosima-SCG-Right', {'Template': 'vkb-kosmosima-scg-right', 'HandledDevices': ['231D0126']}),
     ('VKB-Gladiator-NXT-Premium-Right', {'Template': 'vkb-gladiator-nxt-premium-right', 'HandledDevices': ['231D0200']}),
+    ('VKB-Gladiator-NXT-Premium-Right-OTA', {'Template': 'vkb-gladiator-nxt-premium-right-ota', 'HandledDevices': ['231D3200']}),
     ('VKB-Gladiator-NXT-Premium-Left', {'Template': 'vkb-gladiator-nxt-premium-left', 'HandledDevices': ['231D0201']}),
+    ('VKB-Gladiator-NXT-Premium-Left-OTA', {'Template': 'vkb-gladiator-nxt-premium-left-ota', 'HandledDevices': ['231D3201']}),
     ('Keyboard', {'Template': 'keyboard', 'HandledDevices': ['Keyboard']})
 ])
 
@@ -175,10 +180,12 @@ controls = {
     'FocusRightPanel_Buggy': {'Group': 'SRV', 'Order': 404, 'Name': 'Systems Panel', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['FocusRightPanel']},
     'QuickCommsPanel_Buggy': {'Group': 'SRV', 'Order': 405, 'Name': 'Quick Comms', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['QuickCommsPanel']},
     'UIFocus_Buggy': {'Group': 'SRV', 'Order': 406, 'Name': 'UI Focus', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['UIFocus']},
+    'PlayerHUDModeToggle_Buggy': {'Group': 'SRV', 'Category': 'General', 'Order': 407, 'Name': 'HUD Mode', 'Type': 'Digital',  'HideIfSameAs': ['PlayerHUDModeToggle']},
 
-     # Misc
+    # Misc
     'EjectAllCargo_Buggy': {'Group': 'SRV', 'Order': 501, 'Name': 'Eject All Cargo', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['EjectAllCargo']},
     'HeadLookToggle_Buggy': {'Group': 'SRV', 'Order': 502, 'Name': 'Toggle Headlook', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['HeadLookToggle']},
+    'OpenCodexGoToDiscovery_Buggy': {'Group': 'SRV', 'Category': 'General', 'Order': 503, 'Name': 'Codex', 'Type': 'Digital', 'HideIfSameAs': ['OpenCodexGoToDiscovery']},
 
     #
     # Controls only available in the ship
@@ -359,6 +366,8 @@ controls = {
     'SAAThirdPersonFovAxisRaw': {'Group': 'Scanners', 'Category': 'General', 'Order': 287, 'Name': 'DSS Field of View', 'Type': 'Analogue', 'HideIfSameAs': []},
     'SAAThirdPersonFovOutButton': {'Group': 'Scanners', 'Category': 'General', 'Order': 288, 'Name': 'DSS Field of View Out', 'Type': 'Digital', 'HasAnalogue': True, 'HideIfSameAs': []},
     'SAAThirdPersonFovInButton': {'Group': 'Scanners', 'Category': 'General', 'Order': 289, 'Name': 'DSS Field of View In', 'Type': 'Digital', 'HasAnalogue': True, 'HideIfSameAs': []},
+    'ExplorationSAANextGenus': {'Group': 'Scanners', 'Category': 'General', 'Order': 290, 'Name': 'DSS Next Filter', 'Type': 'Digital', 'HasAnalogue': True, 'HideIfSameAs': []},
+    'ExplorationSAAPreviousGenus': {'Group': 'Scanners', 'Category': 'General', 'Order': 291, 'Name': 'DSS Previous Filter', 'Type': 'Digital', 'HasAnalogue': True, 'HideIfSameAs': []},
 
     # Misc
     'EjectAllCargo': {'Group': 'Ship', 'Category': 'General', 'Order': 701, 'Name': 'Eject All Cargo', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
@@ -499,6 +508,12 @@ controls = {
     'HumanoidToggleToolModeButton': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 132, 'Name': 'Tool Mode', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
     'HumanoidToggleWeaponBoosterModuleButton': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 134, 'Name': 'Weapon Booster', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
     'HumanoidZoomButton': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 135, 'Name': 'ZoomButton', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
+    'HumanoidHealthPack': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 136, 'Name': 'Medkit', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
+    'HumanoidBattery': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 137, 'Name': 'Energy Cell', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
+    'HumanoidSelectFragGrenade': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 138, 'Name': 'Frag Grenade', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
+    'HumanoidSelectEMPGrenade': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 139, 'Name': 'Shield Disruptor', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
+    'HumanoidSelectShieldGrenade': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 140, 'Name': 'Shield Projector', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
+    'HumanoidClearAuthorityLevel': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 141, 'Name': 'Clear Authority Level', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': []},
 
     # Managing power
     'HumanoidResetPowerDistributionButton': {'Group': 'OnFoot', 'Category': 'Combat', 'Order': 201, 'Name': 'RST', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['ResetPowerDistribution']},
@@ -522,9 +537,21 @@ controls = {
     'HumanoidItemWheelButton_YAxis': {'Group': 'OnFoot', 'Category': 'Navigation', 'Order': 705, 'Name': 'Item Up/Dn', 'Type': 'Analogue', 'HideIfSameAs': []},
     'HumanoidItemWheelButton_YDown': {'Group': 'OnFoot', 'Category': 'Navigation', 'Order': 706, 'Name': 'Item Down', 'Type': 'Digital', 'HasAnalogue': True, 'HideIfSameAs': []},
     'HumanoidItemWheelButton_YUp': {'Group': 'OnFoot', 'Category': 'Navigation', 'Order': 707, 'Name': 'Item Up', 'Type': 'Digital', 'HasAnalogue': True, 'HideIfSameAs': []},
-    
+    'HumanoidUtilityWheelCycleMode': {'Group': 'OnFoot', 'Category': 'Navigation', 'Order': 708, 'Name': 'Cycle Utility Wheel Mode', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+
     # Camera
     'PhotoCameraToggle_Humanoid': {'Group': 'Camera', 'Category': 'Camera', 'Order': 801, 'Name': 'External Cam', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+
+    # Emote Wheel
+    'HumanoidEmoteWheelButton': {'Group': 'OnFoot', 'Category': 'General', 'Order': 901, 'Name': 'Open Emote Wheel', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot1': {'Group': 'OnFoot', 'Category': 'General', 'Order': 903, 'Name': 'Point', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot2': {'Group': 'OnFoot', 'Category': 'General', 'Order': 904, 'Name': 'Wave', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot3': {'Group': 'OnFoot', 'Category': 'General', 'Order': 905, 'Name': 'Agree', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot4': {'Group': 'OnFoot', 'Category': 'General', 'Order': 906, 'Name': 'Disagree', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot5': {'Group': 'OnFoot', 'Category': 'General', 'Order': 907, 'Name': 'Go', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot6': {'Group': 'OnFoot', 'Category': 'General', 'Order': 908, 'Name': 'Stop', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot7': {'Group': 'OnFoot', 'Category': 'General', 'Order': 909, 'Name': 'Applaud', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
+    'HumanoidEmoteSlot8': {'Group': 'OnFoot', 'Category': 'General', 'Order': 910, 'Name': 'Salute', 'Type': 'Digital', 'HasAnalogue': False, 'HideIfSameAs': ['PhotoCameraToggle']},
 }
 
 # default height is 54 (px)
@@ -617,6 +644,59 @@ hotasDetails = {
         'Joy_UAxis': {'Type': 'Analogue', 'x': 2584, 'y': 1750, 'width': 832}, # Stick throttle slider
         'Joy_XAxis': {'Type': 'Analogue', 'x': 2357, 'y': 924, 'width': 1132}, # Stick pitch
         'Joy_YAxis': {'Type': 'Analogue', 'x': 2357, 'y': 868, 'width': 1132}, # Stick roll
+        'Joy_ZAxis': {'Type': 'Analogue', 'x': 2357, 'y': 980, 'width': 1132}, # Stick twist
+    },
+    '044F0405': {
+        'Joy_1': {'Type': 'Digital', 'x': 2124, 'y': 494, 'width': 1092}, # Primary trigger
+        'Joy_2': {'Type': 'Digital', 'x': 474, 'y': 494, 'width': 1092}, # Back button
+        'Joy_3': {'Type': 'Digital', 'x': 474, 'y': 624, 'width': 1092}, # Left-hand button
+        'Joy_4': {'Type': 'Digital', 'x': 2124, 'y': 624, 'width': 1092}, # Right-hand button
+        'Joy_5': {'Type': 'Digital', 'x': 3264, 'y': 1104, 'width': 542, 'height': 108}, # Right bank top-right button
+        'Joy_6': {'Type': 'Digital', 'x': 2714, 'y': 1104, 'width': 542, 'height': 108}, # Right bank top-middle button
+        'Joy_7': {'Type': 'Digital', 'x': 2164, 'y': 1104, 'width': 542, 'height': 108}, # Right bank top-left button
+        'Joy_8': {'Type': 'Digital', 'x': 2164, 'y': 1220, 'width': 542, 'height': 108}, # Right bank bottom-left button
+        'Joy_9': {'Type': 'Digital', 'x': 2714, 'y': 1220, 'width': 542, 'height': 108}, # Right bank bottom-middle button
+        'Joy_10': {'Type': 'Digital', 'x': 3264, 'y': 1220, 'width': 542, 'height': 108}, # Right bank bottom-right button
+        'Joy_11': {'Type': 'Digital', 'x': 24, 'y': 1104, 'width': 542, 'height': 108}, # Left bank top-left button
+        'Joy_12': {'Type': 'Digital', 'x': 574, 'y': 1104, 'width': 542, 'height': 108}, # Left bank top-middle button
+        'Joy_13': {'Type': 'Digital', 'x': 1124, 'y': 1104, 'width': 542, 'height': 108}, # Left bank top-right button
+        'Joy_14': {'Type': 'Digital', 'x': 1124, 'y': 1220, 'width': 542, 'height': 108}, # Left bank bottom-right button
+        'Joy_15': {'Type': 'Digital', 'x': 574, 'y': 1220, 'width': 542, 'height': 108}, # Left bank bottom-middle button
+        'Joy_16': {'Type': 'Digital', 'x': 24, 'y': 1220, 'width': 542, 'height': 108}, # Left bank bottom-left button
+        'Joy_POV1Up': {'Type': 'Digital', 'x': 1542, 'y': 214, 'width': 1532}, # PoV hat up
+        'Joy_POV1Right': {'Type': 'Digital', 'x': 1542, 'y': 270, 'width': 1532}, # PoV hat right
+        'Joy_POV1Down': {'Type': 'Digital', 'x': 1542, 'y': 326, 'width': 1532}, # PoV hat down
+        'Joy_POV1Left': {'Type': 'Digital', 'x': 1542, 'y': 382, 'width': 1532}, # PoV hat left
+        'Joy_RZAxis': {'Type': 'Analogue', 'x': 2357, 'y': 980, 'width': 1132}, # Stick twist
+        'Joy_UAxis': {'Type': 'Analogue', 'x': 2584, 'y': 1750, 'width': 832}, # Stick throttle slider
+        'Joy_XAxis': {'Type': 'Analogue', 'x': 2357, 'y': 924, 'width': 1132}, # Stick pitch
+        'Joy_YAxis': {'Type': 'Analogue', 'x': 2357, 'y': 868, 'width': 1132}, # Stick roll
+    },
+    '044F0406': {
+        'Joy_1': {'Type': 'Digital', 'x': 2124, 'y': 494, 'width': 1092}, # Primary trigger
+        'Joy_2': {'Type': 'Digital', 'x': 474, 'y': 494, 'width': 1092}, # Back button
+        'Joy_3': {'Type': 'Digital', 'x': 474, 'y': 624, 'width': 1092}, # Left-hand button
+        'Joy_4': {'Type': 'Digital', 'x': 2124, 'y': 624, 'width': 1092}, # Right-hand button
+        'Joy_5': {'Type': 'Digital', 'x': 24, 'y': 1104, 'width': 542, 'height': 108}, # Left bank top-left button
+        'Joy_6': {'Type': 'Digital', 'x': 574, 'y': 1104, 'width': 542, 'height': 108}, # Left bank top-middle button
+        'Joy_7': {'Type': 'Digital', 'x': 1124, 'y': 1104, 'width': 542, 'height': 108}, # Left bank top-right button
+        'Joy_8': {'Type': 'Digital', 'x': 1124, 'y': 1220, 'width': 542, 'height': 108}, # Left bank bottom-right button
+        'Joy_9': {'Type': 'Digital', 'x': 574, 'y': 1220, 'width': 542, 'height': 108}, # Left bank bottom-middle button
+        'Joy_10': {'Type': 'Digital', 'x': 24, 'y': 1220, 'width': 542, 'height': 108}, # Left bank bottom-left button
+        'Joy_11': {'Type': 'Digital', 'x': 3264, 'y': 1104, 'width': 542, 'height': 108}, # Right bank top-right button
+        'Joy_12': {'Type': 'Digital', 'x': 2714, 'y': 1104, 'width': 542, 'height': 108}, # Right bank top-middle button
+        'Joy_13': {'Type': 'Digital', 'x': 2164, 'y': 1104, 'width': 542, 'height': 108}, # Right bank top-left button
+        'Joy_14': {'Type': 'Digital', 'x': 2164, 'y': 1220, 'width': 542, 'height': 108}, # Right bank bottom-left button
+        'Joy_15': {'Type': 'Digital', 'x': 2714, 'y': 1220, 'width': 542, 'height': 108}, # Right bank bottom-middle button
+        'Joy_16': {'Type': 'Digital', 'x': 3264, 'y': 1220, 'width': 542, 'height': 108}, # Right bank bottom-right button
+        'Joy_POV1Up': {'Type': 'Digital', 'x': 1542, 'y': 214, 'width': 1532}, # PoV hat up
+        'Joy_POV1Right': {'Type': 'Digital', 'x': 1542, 'y': 270, 'width': 1532}, # PoV hat right
+        'Joy_POV1Down': {'Type': 'Digital', 'x': 1542, 'y': 326, 'width': 1532}, # PoV hat down
+        'Joy_POV1Left': {'Type': 'Digital', 'x': 1542, 'y': 382, 'width': 1532}, # PoV hat left
+        'Joy_RZAxis': {'Type': 'Analogue', 'x': 2357, 'y': 980, 'width': 1132}, # Stick twist
+        'Joy_UAxis': {'Type': 'Analogue', 'x': 2584, 'y': 1750, 'width': 832}, # Stick throttle slider
+        'Joy_XAxis': {'Type': 'Analogue', 'x': 2357, 'y': 924, 'width': 1132}, # Stick pitch
+        'Joy_YAxis': {'Type': 'Analogue', 'x': 2357, 'y': 868, 'width': 1132}, # Stick roll
     },
     'T16000MFCS': {
         'Joy_1': {'Type': 'Digital', 'x': 1804, 'y': 844, 'width': 642, 'height': 108}, # Primary trigger
@@ -643,6 +723,7 @@ hotasDetails = {
         'Joy_UAxis': {'Type': 'Analogue', 'x': 2944, 'y': 1593, 'width': 832}, # Stick throttle slider
         'Joy_XAxis': {'Type': 'Analogue', 'x': 2824, 'y': 800, 'width': 932}, # Stick pitch
         'Joy_YAxis': {'Type': 'Analogue', 'x': 2824, 'y': 744, 'width': 932}, # Stick roll
+        'Joy_ZAxis': {'Type': 'Analogue', 'x': 2357, 'y': 856, 'width': 1132},  # Stick twist
     },
     'T16000MTHROTTLE': {
         'Joy_1': {'Type': 'Digital', 'x': 294, 'y': 1244, 'width': 792}, # Thumb button
@@ -2365,6 +2446,58 @@ hotasDetails = {
         'Joy_RYAxis': {'Type': 'Analogue', 'x': 120, 'y': 570, 'width': 1180},
     },
 
+        '334443F4': { # VPC Alpha Prime right
+        'displayName': 'VPC Alpha Prime right',
+        'Joy_1': {'Type': 'Digital', 'x': 120, 'y': 810, 'width': 1180}, # Flip Trigger first stage
+        'Joy_2': {'Type': 'Digital', 'x': 120, 'y': 870, 'width': 1180}, # Flip Trigger second stage
+        'Joy_3': {'Type': 'Digital', 'x': 120, 'y': 930, 'width': 1180}, # Flip Trigger third stage
+        'Joy_4': {'Type': 'Digital', 'x': 120, 'y': 1060, 'width': 1180}, # Trigger first stage
+        'Joy_5': {'Type': 'Digital', 'x': 120, 'y': 1120, 'width': 1180}, # Trigger second stage
+        'Joy_6': {'Type': 'Digital', 'x': 120, 'y': 630, 'width': 1180}, # Mini-joystick push
+        # Lower button        
+        'Joy_13': {'Type': 'Digital', 'x': 2610, 'y': 920, 'width': 1180},
+        # 4-way hat bottom
+        'Joy_14': {'Type': 'Digital', 'x': 2610, 'y': 1340, 'width': 1180}, # Push		
+        'Joy_15': {'Type': 'Digital', 'x': 2610, 'y': 1100, 'width': 1180}, # Up
+        'Joy_18': {'Type': 'Digital', 'x': 2610, 'y': 1160, 'width': 1180}, # Right
+        'Joy_17': {'Type': 'Digital', 'x': 2610, 'y': 1220, 'width': 1180}, # Down
+        'Joy_16': {'Type': 'Digital', 'x': 2610, 'y': 1280, 'width': 1180}, # Left
+        # Top button
+        'Joy_7': {'Type': 'Digital', 'x': 120, 'y': 330, 'width': 1180}, 
+       	# 4-way hat top
+	      'Joy_8': {'Type': 'Digital', 'x': 2610, 'y': 740, 'width': 1180}, # Push
+        'Joy_9': {'Type': 'Digital', 'x': 2610, 'y': 500, 'width': 1180}, # Up
+        'Joy_12': {'Type': 'Digital', 'x': 2610, 'y': 560, 'width': 1180}, # Right
+        'Joy_11': {'Type': 'Digital', 'x': 2610, 'y': 620, 'width': 1180}, # Down 
+        'Joy_10': {'Type': 'Digital', 'x': 2610, 'y': 680, 'width': 1180}, # Left
+	       # 2-way hat
+        'Joy_28': {'Type': 'Digital', 'x': 2610, 'y': 330, 'width': 1180}, # Push
+        'Joy_29': {'Type': 'Digital', 'x': 2610, 'y': 210, 'width': 1180}, # Up
+        'Joy_30': {'Type': 'Digital', 'x': 2610, 'y': 270, 'width': 1180}, # Down
+        # Wheel
+        'Joy_19': {'Type': 'Digital', 'x': 2610, 'y': 1630, 'width': 1180}, # Push first stage
+        'Joy_20': {'Type': 'Digital', 'x': 2610, 'y': 1690, 'width': 1180}, # Push second stage
+        'Joy_22': {'Type': 'Digital', 'x': 2610, 'y': 1570, 'width': 1180}, # Down
+        'Joy_21': {'Type': 'Digital', 'x': 2610, 'y': 1510, 'width': 1180}, # Up
+        # Thumb hat
+        'Joy_23': {'Type': 'Digital', 'x': 120, 'y': 1540, 'width': 1180}, # Push
+        'Joy_24': {'Type': 'Digital', 'x': 120, 'y': 1300, 'width': 1180}, # Up
+        'Joy_27': {'Type': 'Digital', 'x': 120, 'y': 1360, 'width': 1180}, # Righ
+        'Joy_26': {'Type': 'Digital', 'x': 120, 'y': 1420, 'width': 1180}, # Down
+        'Joy_25': {'Type': 'Digital', 'x': 120, 'y': 1480, 'width': 1180}, # Left
+        # Pinky button
+        'Joy_31': {'Type': 'Digital', 'x': 120, 'y': 1900, 'width': 1180},
+        # Break axis
+        'Joy_32': {'Type': 'Digital', 'x': 120, 'y': 1750, 'width': 1180},
+        'Joy_UAxis': {'Type': 'Analogue', 'x': 120, 'y': 1690, 'width': 1180},
+	      # Joystick axis
+        'Joy_XAxis': {'Type': 'Analogue', 'x': 2610, 'y': 1860, 'width': 1180},
+        'Joy_YAxis': {'Type': 'Analogue', 'x': 2610, 'y': 1920, 'width': 1180},
+        'Joy_ZAxis': {'Type': 'Analogue', 'x': 2610, 'y': 1980, 'width': 1180},
+	      # Mini-joysticks axis
+        'Joy_RXAxis': {'Type': 'Analogue', 'x': 120, 'y': 510, 'width': 1180},
+        'Joy_RYAxis': {'Type': 'Analogue', 'x': 120, 'y': 570, 'width': 1180},
+    },
  '33448197': { # VPC MongoosT-50CM3 Throttle
         'displayName': 'VPC MongoosT-50CM3 Throttle',
         'Joy_1': {'Type': 'Digital', 'x': 2066, 'y': 602, 'width': 450},       # Throttle Left Encoder Button
@@ -2622,8 +2755,116 @@ hotasDetails = {
         'Joy_POV1Down': {'Type': 'Digital', 'x': 384, 'y': 730, 'width': 918, 'height': 56}, # A1 POV Switch down
         'Joy_POV1Left': {'Type': 'Digital', 'x': 384, 'y': 796, 'width': 918, 'height': 56}, # A1 POV Switch left
     },
+    '231D3200': { # VKB Gladiator NXT Premium Right OTA
+        'displayName': 'VKB Gladiator NXT Premium Right OTA',
+        'Joy_1': {'Type': 'Digital', 'x': 460, 'y': 1390, 'width': 842, 'height': 56}, # Fire first stage
+        'Joy_2': {'Type': 'Digital', 'x': 460, 'y': 1452, 'width': 842, 'height': 56}, # Fire second stage
+        'Joy_3': {'Type': 'Digital', 'x': 384, 'y': 1018, 'width': 918, 'height': 56}, # A2
+        'Joy_4': {'Type': 'Digital', 'x': 2636, 'y': 546, 'width': 918, 'height': 56}, # B1
+        'Joy_5': {'Type': 'Digital', 'x': 384, 'y': 2028, 'width': 918, 'height': 56}, # D1
+        'Joy_6': {'Type': 'Digital', 'x': 2636, 'y': 1136, 'width': 918, 'height': 56}, # A3 up
+        'Joy_POV3Up': {'Type': 'Digital', 'x': 2636, 'y': 1136, 'width': 918, 'height': 56}, # A3 up (rebind)
+        'Joy_7': {'Type': 'Digital', 'x': 2636, 'y': 1196, 'width': 918, 'height': 56}, # A3 right
+        'Joy_POV3Right': {'Type': 'Digital', 'x': 2636, 'y': 1196, 'width': 918, 'height': 56}, # A3 right (rebind)
+        'Joy_8': {'Type': 'Digital', 'x': 2636, 'y': 1258, 'width': 918, 'height': 56}, # A3 down
+        'Joy_POV3Down': {'Type': 'Digital', 'x': 2636, 'y': 1258, 'width': 918, 'height': 56}, # A3 down (rebind)
+        'Joy_9': {'Type': 'Digital', 'x': 2636, 'y': 1320, 'width': 918, 'height': 56}, # A3 left
+        'Joy_POV3Left': {'Type': 'Digital', 'x': 2636, 'y': 1320, 'width': 918, 'height': 56}, # A3 left (rebind)
+        'Joy_10': {'Type': 'Digital', 'x': 2636, 'y': 1382, 'width': 918, 'height': 56}, # A3 push
+        'Joy_11': {'Type': 'Digital', 'x': 2636, 'y': 720, 'width': 918, 'height': 56}, # A4 up
+        'Joy_POV2Up': {'Type': 'Digital', 'x': 2636, 'y': 720, 'width': 918, 'height': 56}, # A4 up (rebind)
+        'Joy_12': {'Type': 'Digital', 'x': 2636, 'y': 786, 'width': 918, 'height': 56}, # A4 right
+        'Joy_POV2Right': {'Type': 'Digital', 'x': 2636, 'y': 786, 'width': 918, 'height': 56}, # A4 right (rebind)
+        'Joy_13': {'Type': 'Digital', 'x': 2636, 'y': 850, 'width': 918, 'height': 56}, # A4 down
+        'Joy_POV2Down': {'Type': 'Digital', 'x': 2636, 'y': 850, 'width': 918, 'height': 56}, # A4 down (rebind)
+        'Joy_14': {'Type': 'Digital', 'x': 2636, 'y': 916, 'width': 918, 'height': 56}, # A4 left
+        'Joy_POV2Left': {'Type': 'Digital', 'x': 2636, 'y': 916, 'width': 918, 'height': 56}, # A4 left (rebind)
+        'Joy_15': {'Type': 'Digital', 'x': 2636, 'y': 982, 'width': 918, 'height': 56}, # A4 push
+        'Joy_16': {'Type': 'Digital', 'x': 384, 'y': 1624, 'width': 918, 'height': 56}, # C1 up
+        'Joy_POV4Up': {'Type': 'Digital', 'x': 384, 'y': 1624, 'width': 918, 'height': 56}, # C1 up (rebind)
+        'Joy_17': {'Type': 'Digital', 'x': 384, 'y': 1690, 'width': 918, 'height': 56}, # C1 right
+        'Joy_POV4Right': {'Type': 'Digital', 'x': 384, 'y': 1690, 'width': 918, 'height': 56}, # C1 right (rebind)
+        'Joy_18': {'Type': 'Digital', 'x': 384, 'y': 1754, 'width': 918, 'height': 56}, # C1 down
+        'Joy_POV4Down': {'Type': 'Digital', 'x': 384, 'y': 1754, 'width': 918, 'height': 56}, # C1 down (rebind)
+        'Joy_19': {'Type': 'Digital', 'x': 384, 'y': 1820, 'width': 918, 'height': 56}, # C1 left
+        'Joy_POV4Left': {'Type': 'Digital', 'x': 384, 'y': 1820, 'width': 918, 'height': 56}, # C1 left (rebind)
+        'Joy_20': {'Type': 'Digital', 'x': 384, 'y': 1886, 'width': 918, 'height': 56}, # C1 push
+        'Joy_21': {'Type': 'Digital', 'x': 460, 'y': 1158, 'width': 842, 'height': 56}, # Rapid fire push
+        'Joy_22': {'Type': 'Digital', 'x': 460, 'y': 1220, 'width': 842, 'height': 56}, # Rapid fire pull
+        'Joy_23': {'Type': 'Digital', 'x': 2718, 'y': 1826, 'width': 842, 'height': 56}, # En1 up
+        'Joy_24': {'Type': 'Digital', 'x': 2718, 'y': 1888, 'width': 842, 'height': 56}, # En1 down
+        'Joy_25': {'Type': 'Digital', 'x': 2718, 'y': 1948, 'width': 842, 'height': 56}, # En2 up
+        'Joy_26': {'Type': 'Digital', 'x': 2718, 'y': 2010, 'width': 842, 'height': 56}, # En2 down
+        'Joy_27': {'Type': 'Digital', 'x': 2656, 'y': 1540, 'width': 902, 'height': 56}, # F1
+        'Joy_28': {'Type': 'Digital', 'x': 2656, 'y': 1600, 'width': 902, 'height': 56}, # F2
+        'Joy_29': {'Type': 'Digital', 'x': 2656, 'y': 1662, 'width': 902, 'height': 56}, # F3
+        'Joy_XAxis': {'Type': 'Analogue', 'x': 1598, 'y': 320, 'width': 758, 'height': 56}, # Joystick x
+        'Joy_YAxis': {'Type': 'Analogue', 'x': 1598, 'y': 382, 'width': 758, 'height': 56}, # Joystick y
+        'Joy_ZAxis': {'Type': 'Analogue', 'x': 1598, 'y': 446, 'width': 758, 'height': 56}, # Throttle
+        'Joy_RXAxis': {'Type': 'Analogue', 'x': 1598, 'y': 508, 'width': 758, 'height': 56}, # A1 Ministick R x
+        'Joy_RYAxis': {'Type': 'Analogue', 'x': 1598, 'y': 572, 'width': 758, 'height': 56}, # A1 Ministick R y
+        'Joy_RZAxis': {'Type': 'Analogue', 'x': 1598, 'y': 634, 'width': 758, 'height': 56}, # Twist R z
+        'Joy_POV1Up': {'Type': 'Digital', 'x': 384, 'y': 598, 'width': 918, 'height': 56}, # A1 POV Switch up
+        'Joy_POV1Right': {'Type': 'Digital', 'x': 384, 'y': 664, 'width': 918, 'height': 56}, # A1 POV Switch right
+        'Joy_POV1Down': {'Type': 'Digital', 'x': 384, 'y': 730, 'width': 918, 'height': 56}, # A1 POV Switch down
+        'Joy_POV1Left': {'Type': 'Digital', 'x': 384, 'y': 796, 'width': 918, 'height': 56}, # A1 POV Switch left
+    },
     '231D0201': { # VKB Gladiator NXT Premium Left
         'displayName': 'VKB Gladiator NXT Premium Left',
+        'Joy_1': {'Type': 'Digital', 'x': 2692, 'y': 1390, 'width': 842, 'height': 56}, # Fire first stage
+        'Joy_2': {'Type': 'Digital', 'x': 2692, 'y': 1452, 'width': 842, 'height': 56}, # Fire second stage
+        'Joy_3': {'Type': 'Digital', 'x': 2616, 'y': 1018, 'width': 918, 'height': 56}, # A2
+        'Joy_4': {'Type': 'Digital', 'x': 374, 'y': 546, 'width': 918, 'height': 56}, # B1
+        'Joy_5': {'Type': 'Digital', 'x': 2616, 'y': 2028, 'width': 918, 'height': 56}, # D1
+        'Joy_6': {'Type': 'Digital', 'x': 374, 'y': 1136, 'width': 918, 'height': 56}, # A3 up
+        'Joy_POV3Up': {'Type': 'Digital', 'x': 374, 'y': 1136, 'width': 918, 'height': 56}, # A3 up (rebind)
+        'Joy_7': {'Type': 'Digital', 'x': 374, 'y': 1196, 'width': 918, 'height': 56}, # A3 right
+        'Joy_POV3Right': {'Type': 'Digital', 'x': 374, 'y': 1196, 'width': 918, 'height': 56}, # A3 right (rebind)
+        'Joy_8': {'Type': 'Digital', 'x': 374, 'y': 1258, 'width': 918, 'height': 56}, # A3 down
+        'Joy_POV3Down': {'Type': 'Digital', 'x': 374, 'y': 1258, 'width': 918, 'height': 56}, # A3 down (rebind)
+        'Joy_9': {'Type': 'Digital', 'x': 374, 'y': 1320, 'width': 918, 'height': 56}, # A3 left
+        'Joy_POV3Left': {'Type': 'Digital', 'x': 374, 'y': 1320, 'width': 918, 'height': 56}, # A3 left (rebind)
+        'Joy_10': {'Type': 'Digital', 'x': 374, 'y': 1382, 'width': 918, 'height': 56}, # A3 push
+        'Joy_11': {'Type': 'Digital', 'x': 374, 'y': 720, 'width': 918, 'height': 56}, # A4 up
+        'Joy_POV2Up': {'Type': 'Digital', 'x': 374, 'y': 720, 'width': 918, 'height': 56}, # A4 up (rebind)
+        'Joy_12': {'Type': 'Digital', 'x': 374, 'y': 786, 'width': 918, 'height': 56}, # A4 right
+        'Joy_POV2Right': {'Type': 'Digital', 'x': 374, 'y': 786, 'width': 918, 'height': 56}, # A4 right (rebind)
+        'Joy_13': {'Type': 'Digital', 'x': 374, 'y': 850, 'width': 918, 'height': 56}, # A4 down
+        'Joy_POV2Down': {'Type': 'Digital', 'x': 374, 'y': 850, 'width': 918, 'height': 56}, # A4 down (rebind)
+        'Joy_14': {'Type': 'Digital', 'x': 374, 'y': 916, 'width': 918, 'height': 56}, # A4 left
+        'Joy_POV2Left': {'Type': 'Digital', 'x': 374, 'y': 916, 'width': 918, 'height': 56}, # A4 left (rebind)
+        'Joy_15': {'Type': 'Digital', 'x': 374, 'y': 982, 'width': 918, 'height': 56}, # A4 push
+        'Joy_16': {'Type': 'Digital', 'x': 2616, 'y': 1624, 'width': 918, 'height': 56}, # C1 up
+        'Joy_POV4Up': {'Type': 'Digital', 'x': 2616, 'y': 1624, 'width': 918, 'height': 56}, # C1 up (rebind)
+        'Joy_17': {'Type': 'Digital', 'x': 2616, 'y': 1690, 'width': 918, 'height': 56}, # C1 right
+        'Joy_POV4Right': {'Type': 'Digital', 'x': 2616, 'y': 1690, 'width': 918, 'height': 56}, # C1 right (rebind)
+        'Joy_18': {'Type': 'Digital', 'x': 2616, 'y': 1754, 'width': 918, 'height': 56}, # C1 down
+        'Joy_POV4Down': {'Type': 'Digital', 'x': 2616, 'y': 1754, 'width': 918, 'height': 56}, # C1 down (rebind)
+        'Joy_19': {'Type': 'Digital', 'x': 2616, 'y': 1820, 'width': 918, 'height': 56}, # C1 left
+        'Joy_POV4Left': {'Type': 'Digital', 'x': 2616, 'y': 1820, 'width': 918, 'height': 56}, # C1 left (rebind)
+        'Joy_20': {'Type': 'Digital', 'x': 2616, 'y': 1886, 'width': 918, 'height': 56}, # C1 push
+        'Joy_21': {'Type': 'Digital', 'x': 2692, 'y': 1158, 'width': 842, 'height': 56}, # Rapid fire push
+        'Joy_22': {'Type': 'Digital', 'x': 2692, 'y': 1220, 'width': 842, 'height': 56}, # Rapid fire pull
+        'Joy_23': {'Type': 'Digital', 'x': 456, 'y': 1826, 'width': 842, 'height': 56}, # En1 up
+        'Joy_24': {'Type': 'Digital', 'x': 456, 'y': 1888, 'width': 842, 'height': 56}, # En1 down
+        'Joy_25': {'Type': 'Digital', 'x': 456, 'y': 1948, 'width': 842, 'height': 56}, # En2 up
+        'Joy_26': {'Type': 'Digital', 'x': 456, 'y': 2010, 'width': 842, 'height': 56}, # En2 down
+        'Joy_27': {'Type': 'Digital', 'x': 394, 'y': 1540, 'width': 902, 'height': 56}, # F1
+        'Joy_28': {'Type': 'Digital', 'x': 394, 'y': 1600, 'width': 902, 'height': 56}, # F2
+        'Joy_29': {'Type': 'Digital', 'x': 394, 'y': 1662, 'width': 902, 'height': 56}, # F3
+        'Joy_XAxis': {'Type': 'Analogue', 'x': 1598, 'y': 320, 'width': 758, 'height': 56}, # Joystick x
+        'Joy_YAxis': {'Type': 'Analogue', 'x': 1598, 'y': 382, 'width': 758, 'height': 56}, # Joystick y
+        'Joy_ZAxis': {'Type': 'Analogue', 'x': 1598, 'y': 446, 'width': 758, 'height': 56}, # Throttle
+        'Joy_RXAxis': {'Type': 'Analogue', 'x': 1598, 'y': 508, 'width': 758, 'height': 56}, # A1 Ministick R x
+        'Joy_RYAxis': {'Type': 'Analogue', 'x': 1598, 'y': 572, 'width': 758, 'height': 56}, # A1 Ministick R y
+        'Joy_RZAxis': {'Type': 'Analogue', 'x': 1598, 'y': 634, 'width': 758, 'height': 56}, # Twist R z
+        'Joy_POV1Up': {'Type': 'Digital', 'x': 2616, 'y': 598, 'width': 918, 'height': 56}, # A1 POV Switch up
+        'Joy_POV1Right': {'Type': 'Digital', 'x': 2616, 'y': 664, 'width': 918, 'height': 56}, # A1 POV Switch right
+        'Joy_POV1Down': {'Type': 'Digital', 'x': 2616, 'y': 730, 'width': 918, 'height': 56}, # A1 POV Switch down
+        'Joy_POV1Left': {'Type': 'Digital', 'x': 2616, 'y': 796, 'width': 918, 'height': 56}, # A1 POV Switch left
+    },
+    '231D3201': { # VKB Gladiator NXT Premium Left OTA
+        'displayName': 'VKB Gladiator NXT Premium Left OTA',
         'Joy_1': {'Type': 'Digital', 'x': 2692, 'y': 1390, 'width': 842, 'height': 56}, # Fire first stage
         'Joy_2': {'Type': 'Digital', 'x': 2692, 'y': 1452, 'width': 842, 'height': 56}, # Fire second stage
         'Joy_3': {'Type': 'Digital', 'x': 2616, 'y': 1018, 'width': 918, 'height': 56}, # A2
