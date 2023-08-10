@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-__version__ = '1.3'
+__version__ = '1.4'
 
 from lxml import etree
 
@@ -855,6 +855,7 @@ def printBody(mode, options, config, public, createdImages, deviceForBlockImage,
         ''')
         return
     printBodyMain(mode, options, config, public, createdImages, deviceForBlockImage, errors)
+    print('<p>This is fork of <a href="https://edrefcard.info/">EDRefCard</a> hosted by CMDR Epaphus and contains some pending pull requests from the main <a href="https://github.com/richardbuckle/EDRefCard">project</a>. Issues specifically with this fork can be raised on <a href="https://github.com/Epaphus/EDRefCard/issues">Github</a> however no guarantees, etc</p>')
     printSupportPara()
     print('<p><a href="/">Home</a>.</p>')
 
@@ -923,6 +924,7 @@ def parseBindings(runId, xml, displayGroups, errors):
             device = 'T16000MFCS'
 
         deviceIndex = xmlBinding.get('DeviceIndex', 0)
+
 
         # Rewrite the device if it's a VPC MongoosT-50CM3 Throttle running 32 button split mode
         if device == "33448197" and vpcCM3Throttle32buttonmode == True:
@@ -1266,7 +1268,9 @@ def processForm(form):
     printHTML(mode, options, config, public, createdImages, deviceForBlockImage, errors)
 
 def logError(message):
-    sys.stderr.write("EDRefCard: %s", message)
+    #sys.stderr.write("EDRefCard: %s", message)
+    # TypeError: write() takes exactly one argument (2 given)
+    sys.stderr.write("EDRefCard: "+message)
 
 def main():
     cgitb.enable()
