@@ -1,3 +1,6 @@
+# Superseded
+This repo is now superseded by [this one](https://github.com/brammmers/edrefcard2) and will soon be archived.
+
 # Build status
 * live  [![Build Status](https://travis-ci.org/richardbuckle/EDRefCard.svg?branch=live)](https://travis-ci.org/richardbuckle/EDRefCard)  [![Coverage Status](https://coveralls.io/repos/github/richardbuckle/EDRefCard/badge.svg?branch=live)](https://coveralls.io/github/richardbuckle/EDRefCard?branch=live)
 * beta  [![Build Status](https://travis-ci.org/richardbuckle/EDRefCard.svg?branch=beta)](https://travis-ci.org/richardbuckle/EDRefCard)  [![Coverage Status](https://coveralls.io/repos/github/richardbuckle/EDRefCard/badge.svg?branch=beta)](https://coveralls.io/github/richardbuckle/EDRefCard?branch=beta)
